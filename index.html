@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Mashail | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1>Ahmed Mashail</h1>
+      <p>Game Artist • Developer</p>
+    </div>
+    <button id="themeToggle">
+      <span class="material-icons">dark_mode</span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="about">
+  <h2>About</h2>
+  <p>
+    Game artist and developer with a background in Computer Games Development.
+    Focused on expressive visuals, clean UI, and cohesive visual direction across interactive projects.
+  </p>
+</section>
+
+<section class="portfolio">
+  <h2>Selected Work</h2>
+  <p class="preview-hint">Click any artwork to preview and navigate</p>
+  <div id="art-grid"></div>
+</section>
+
+<section class="skills">
+  <h2>Skills & Tools</h2>
+  <div class="skill-tags">
+    <span>Krita</span>
+    <span>Photoshop</span>
+    <span>Illustrator</span>
+    <span>Aseprite</span>
+    <span>ZBrush</span>
+    <span>3ds Max</span>
+    <span>Substance Painter</span>
+    <span>Unity</span>
+    <span>C / C# / C++ / Python</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://amashail.itch.io" target="_blank"><span class="material-icons">sports_esports</span></a>
+    <a href="https://www.artstation.com/a_mashail" target="_blank"><span class="material-icons">brush</span></a>
+    <a href="https://www.instagram.com/amashail05/" target="_blank"><span class="material-icons">photo_camera</span></a>
+    <a href="mailto:amashail05@gmail.com"><span class="material-icons">email</span></a>
+  </div>
+</footer>
+
+<div id="lightbox">
+  <button id="prev"><span class="material-icons">chevron_left</span></button>
+  <img id="lightboxImage">
+  <button id="next"><span class="material-icons">chevron_right</span></button>
+  <button id="close"><span class="material-icons">close</span></button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
