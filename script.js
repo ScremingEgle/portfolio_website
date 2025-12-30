@@ -12,27 +12,31 @@ let currentIndex = 0
 let index = 1
 
 function loadImage() {
+  const probe = new Image()
   const src = `art/drawing_${index}.png`
-  const img = new Image()
-  img.src = src
 
-  img.onload = () => {
+  probe.onload = () => {
+    const realSrc = `${src}?v=${index}`
     const thisIndex = images.length
-    images.push(src)
+    images.push(realSrc)
 
     const container = document.createElement("div")
     container.className = "art-item"
 
-    const displayImg = document.createElement("img")
-    displayImg.src = src
+    const img = document.createElement("img")
+    img.src = realSrc
 
-    container.appendChild(displayImg)
+    container.appendChild(img)
     container.onclick = () => openLightbox(thisIndex)
 
     artGrid.appendChild(container)
     index++
     loadImage()
   }
+
+  probe.onerror = () => {}
+
+  probe.src = src
 }
 
 function openLightbox(i) {
