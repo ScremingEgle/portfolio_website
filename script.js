@@ -6,37 +6,50 @@ const next = document.getElementById("next")
 const closeBtn = document.getElementById("close")
 const toggle = document.getElementById("themeToggle")
 const body = document.body
+const tabs = document.querySelectorAll(".tab")
 
 let images = []
 let currentIndex = 0
-let index = 1
+let currentFolder = "art"
 
-function loadImage() {
-  const probe = new Image()
-  const src = `art/drawing_${index}.png`
+function clearGrid() {
+  artGrid.innerHTML = ""
+  images = []
+}
 
-  probe.onload = () => {
-    const realSrc = `${src}?v=${index}`
-    const thisIndex = images.length
-    images.push(realSrc)
+function loadPortfolio(folder) {
+  clearGrid()
+  currentFolder = folder
+  let index = 1
 
-    const container = document.createElement("div")
-    container.className = "art-item"
+  function loadImage() {
+    const probe = new Image()
+    const src = `${folder}/${folder === "art" ? "drawing" : "design"}_${index}.png`
 
-    const img = document.createElement("img")
-    img.src = realSrc
+    probe.onload = () => {
+      const realSrc = `${src}?v=${index}`
+      const thisIndex = images.length
+      images.push(realSrc)
 
-    container.appendChild(img)
-    container.onclick = () => openLightbox(thisIndex)
+      const container = document.createElement("div")
+      container.className = "art-item"
 
-    artGrid.appendChild(container)
-    index++
-    loadImage()
+      const img = document.createElement("img")
+      img.src = realSrc
+
+      container.appendChild(img)
+      container.onclick = () => openLightbox(thisIndex)
+
+      artGrid.appendChild(container)
+      index++
+      loadImage()
+    }
+
+    probe.onerror = () => {}
+    probe.src = src
   }
 
-  probe.onerror = () => {}
-
-  probe.src = src
+  loadImage()
 }
 
 function openLightbox(i) {
@@ -63,4 +76,12 @@ toggle.onclick = () => {
   body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light"
 }
 
-loadImage()
+tabs.forEach(tab => {
+  tab.onclick = () => {
+    tabs.forEach(t => t.classList.remove("active"))
+    tab.classList.add("active")
+    loadPortfolio(tab.dataset.type)
+  }
+})
+
+loadPortfolio("art")

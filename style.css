@@ -183,6 +183,28 @@ img {
   font-size: 0.95rem;
 }
 
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 #prev { left: 30px; }
 #next { right: 30px; }
 #close { top: 20px; right: 20px; font-size: 34px; }
