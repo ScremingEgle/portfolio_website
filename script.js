@@ -24,7 +24,8 @@ function loadPortfolio(folder) {
 
   function loadImage() {
     const probe = new Image()
-    const src = `${folder}/${folder === "art" ? "drawing" : "design"}_${index}.png`
+    const name = folder === "art" ? "drawing" : "design"
+    const src = `${folder}/${name}_${index}.png`
 
     probe.onload = () => {
       const realSrc = `${src}?v=${index}`
